@@ -1,0 +1,136 @@
+<html>
+
+<head>
+	<title>HTML test</title>
+
+	<meta  content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+	<div id="header">
+		<h1>Title</h1>
+	</div>
+
+	<div id="content">
+
+		<div id="sidebar">
+			<ul>
+				<li>A sidebar element.</li>
+				<li>Another sidebar element.</li>
+				<li><a href="http://css-tricks.com/examples/SuperSimpleTwoColumn.zip">Download the original CSS format.</a>
+				</li>
+			</ul>
+		</div>
+
+		<div id="main-content">
+
+			<p>This is inside the main-content:</p>
+
+			<div class= "cities" id ="cal">
+				<p>Southern Cal is sunny.</p>
+					<p>Northern Cal is rainy. </p>
+					<p>Eastern Cal is desert. </p>
+			</div>
+
+			<div class= "cities" id=" ny">
+					<p>Urban NY is crowded. </p>
+					<p>Rural NY is sparse. </p>
+			</div>
+			<br>
+
+
+			<div id="formArea">
+
+				<p>Write a string here.</p>
+				<input id="txt_input" type="text" onchange="testTextBox()" />
+				<br>
+
+				<p>Write several  things here.</p>
+				<form id="form1" action="" >
+				  First name: <input type="text" name="fname" ><br>
+				  Last name: <input type="text" name="lname"><br><br>
+				  <input type="button" onclick="testForm()" value="Submit">
+				</form>
+
+
+				<p>Choose an option here.</p>
+				<form id="radio">
+					<input type="radio" id="r1" name="rate" value="first"> Option 1
+					<input type="radio" id="r2" name="rate" value="second"> Option 2
+					<input type="radio" id="r3" name="rate" value="third" checked="checked"> Option 3
+					<input type="button" onclick="testRadio()" value="Submit">
+				</form>
+			<br>
+
+
+
+			</div>
+
+
+
+
+			<div id="result">
+			</div>
+
+
+
+		</div>
+
+
+	</div>  <!-- End of the "content" sidebar. -->
+
+<!--	<script src="myScripts"></script> example how to use JS in external file-->
+
+<script>
+
+function testTextBox()
+{
+		var myInput= document.getElementById("txt_input").value;
+
+		var resultElement= document.getElementById("result");
+
+		resultElement.innerHTML="<p>You wrote "+myInput+ ".</p>";
+
+}
+
+function testForm()
+{
+	var resultElement= document.getElementById("result");
+
+
+		resultElement.innerHTML="<p>You sent something in the form.</p>";
+
+
+		var myFormElements= document.getElementById("form1").elements;
+
+
+		resultElement.innerHTML += "<p>You wrote "+myFormElements[0].value+ ".</p>";
+		resultElement.innerHTML += "<p>You wrote "+myFormElements[1].value+ ".</p>";
+
+
+}
+
+function testRadio()
+{
+	var resultElement= document.getElementById("result");
+
+		resultElement.innerHTML="<p>You submitted a radio form.</p>";
+
+		var myRadioElements= document.getElementById("radio").elements;
+
+
+		resultElement.innerHTML += "<p>Is first element checked? "+myRadioElements[0].checked+ ".</p>";
+		resultElement.innerHTML += "<p>Is second element checked? "+myRadioElements[1].checked+ ".</p>";
+		resultElement.innerHTML += "<p>Is third element checked? "+myRadioElements[2].checked+ ".</p>";
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
